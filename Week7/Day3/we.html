@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(145deg, #d79829, #b58022);
+      }
+
+      .box {
+        text-align: center;
+      }
+
+      .hours,
+      .minutes,
+      .seconds,
+      .half {
+        width: 10vw;
+        height: 10vw;
+        padding: 1em;
+        margin: 1em;
+        display: flex;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        box-shadow: 5px 5px 23px #7b5717, -5px -5px 23px #ffc535;
+      }
+
+      .hours:hover,
+      .minutes:hover,
+      .seconds:hover,
+      .half:hover {
+        transform: translateY(20px);
+        transition: 0.25s ease-in-out all;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="hours">
+          <p id="hours"></p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="minutes">
+          <p id="minutes"></p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="seconds">
+          <p id="seconds"></p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="half">
+          <p id="half"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function clock() {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        var half = '';
+        if (hours >= 12) {
+          half = 'PM';
+        } else {
+          half = 'AM';
+        }
+
+        document.getElementById('hours').innerHTML = hours;
+        document.getElementById('minutes').innerHTML = minutes;
+        document.getElementById('seconds').innerHTML = seconds;
+        document.getElementById('half').innerHTML = half;
+
+        setTimeout(clock, 1000);
+      }
+      clock();
+    </script>
+  </body>
+</html>

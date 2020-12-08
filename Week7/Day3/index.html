@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      .container-1 {
+        width: 75vw;
+        height: auto;
+        margin: 10px auto;
+        padding: 10px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .topic-button {
+        width: 180px;
+        height: 20px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .topic-button:hover {
+        text-decoration: underline;
+      }
+
+      .container-2 {
+        width: 75vw;
+        height: 75vh;
+        position: relative;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: auto;
+      }
+
+      .container-2 > div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .c2-images {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .c2-images > img {
+        width: 40%;
+        max-width: 500px;
+      }
+
+      #desc4 img {
+        width: 100%;
+        max-width: none;
+      }
+      .c2-details {
+        width: 100%;
+        padding: 10px 40px;
+        overflow-y: scroll;
+      }
+
+      @media only screen and (max-width: 900px) {
+        .container-1 {
+          width: 95vw;
+        }
+
+        .container-2 {
+          width: 95vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="topic-button" id="csm">Client Server Model</div>
+      <div class="topic-button" id="ports">Ports</div>
+      <div class="topic-button" id="dns">DNS</div>
+      <div class="topic-button" id="headers">Headers</div>
+      <div class="topic-button" id="origins">Origins</div>
+      <div class="topic-button" id="cors">CORS</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1" style="visibility: hidden">
+        <div class="c2-images">
+          <img
+            src="https://techterms.com/img/lg/client-server_model_1253.png"
+            alt="client-server"
+          />
+          <img
+            src="https://web.cs.dal.ca/~jamie/course/CS/3172/Course/goals/client-server.gif"
+            alt="client-server"
+          />
+        </div>
+        <div class="c2-details">
+          The client-server model describes how a server provides resources and
+          services to one or more clients.In the client-server architecture,
+          when the client computer sends a request for data to the server
+          through the internet, the server accepts the requested process and
+          deliver the data packets requested back to the client.Clients do not
+          share any of their resources. Examples of Client-Server Model are
+          Email, World Wide Web, etc.<br /><br />
+          <b>How the Client-Server Model works ?</b><br /><br />
+          <ul>
+            <li>
+              User enters the URL(Uniform Resource Locator) of the website or
+              file. The Browser then requests the DNS(DOMAIN NAME SYSTEM)
+              Server.
+            </li>
+            <li>DNS Server lookup for the address of the WEB Server.</li>
+            <li>DNS Server responds with the IP address of the WEB Server.</li>
+            <li>
+              Browser sends over an HTTP/HTTPS request to WEB Server’s IP
+              (provided by DNS server).
+            </li>
+            <li>Server sends over the necessary files of the website.</li>
+            <li>
+              Browser then renders the files and the website is displayed. This
+              rendering is done with the help of DOM (Document Object Model)
+              interpreter, CSS interpreter and JS Engine collectively known as
+              the JIT or (Just in Time) Compilers.
+            </li>
+          </ul>
+          <br /><br /><b>Advantages of Client-Server model:</b><br /><br />
+          <ul>
+            <li>Centralized system with all data in a single place.</li>
+            <li>
+              Cost efficient requires less maintenance cost and Data recovery is
+              possible.
+            </li>
+            <li>
+              The capacity of the Client and Servers can be changed separately.
+            </li>
+          </ul>
+          <br /><br /><b>Disadvantages of Client-Server model:</b><br /><br />
+          <ul>
+            <li>
+              Clients are prone to viruses, Trojans and worms if present in the
+              Server or uploaded into the Server.
+            </li>
+            <li>Server are prone to Denial of Service (DOS) attacks.</li>
+            <li>
+              Data packets may be spoofed or modified during transmission.
+            </li>
+            <li>
+              Phishing or capturing login credentials or other useful
+              information of the user are common and MITM(Man in the Middle)
+              attacks are common.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="desc2" style="visibility: hidden">
+        <div class="c2-images">
+          <img
+            src="https://images.slideplayer.com/25/8089348/slides/slide_1.jpg"
+            alt="port"
+          />
+          <img
+            src="https://www.researchgate.net/profile/Harjeet_Singh17/publication/317690586/figure/fig3/AS:507355907321856@1497974483019/Port-configuration-in-client-server-machines-The-following-process-has-some.png"
+            alt="port"
+          />
+        </div>
+        <div class="c2-details">
+          A port number is a 16-bit unsigned integer, thus ranging from 0 to
+          65535. For TCP, port number 0 is reserved and cannot be used, while
+          for UDP, the source port is optional and a value of zero means no
+          port. A process associates its input or output channels via an
+          Internet socket, which is a type of file descriptor, associated with a
+          transport protocol, an IP address, and a port number. This is known as
+          binding. A socket is used by a process to send and receive data via
+          the network. The operating system's networking software has the task
+          of transmitting outgoing data from all application ports onto the
+          network, and forwarding arriving network packets to processes by
+          matching the packet's IP address and port number to a socket. For TCP,
+          only one process may bind to a specific IP address and port
+          combination. Common application failures, sometimes called port
+          conflicts, occur when multiple programs attempt to use the same port
+          number on the same IP address with the same protocol.
+        </div>
+      </div>
+      <div id="desc3" style="visibility: hidden">
+        <div class="c2-images">
+          <img
+            src="https://kinsta.com/wp-content/uploads/2018/05/what-is-dns.png"
+            alt="dns"
+          />
+          <img
+            src="https://miro.medium.com/max/700/1*T-UR9mJuY4v2R8QWwm-KZw.jpeg"
+            alt="dns"
+          />
+        </div>
+        <div class="c2-details">
+          <b>What is DNS?</b><br /><br />
+          Domain Name Servers (DNS) is an amazing technology that helps us open
+          internet addresses without a hustle. At its basic, DNS is the
+          Internet’s equivalent of a phone book. They maintain a directory of
+          domain names and translate them to Internet Protocol (IP) addresses.
+          The way DNS works is just like the contacts section of your
+          smartphone. Do you want John’s number? Just type the name and your
+          phone will fetch it for you. Information received from all the domain
+          name servers across the internet are stored together at the Central
+          Registry. Host companies and Internet Service Providers are constantly
+          in touch with the Central Registry to get the updated DNS information.
+          <br /><br /><b>Main Function of DNS</b><br /><br />
+          The primary function of DNS is name resolution. It’s an architecture
+          that maps names to addresses so that when a user tries to access
+          another computer on a network, it directs him there. For example, when
+          you type in a web address, e.g., www.get.tech, your Internet Service
+          Provider views the DNS associated with the domain name, translates it
+          into a machine-friendly IP address (for example 215.178.254.70 is the
+          IP for www.get.tech) and directs your Internet connection to the
+          correct website.
+        </div>
+      </div>
+      <div id="desc4" style="visibility: hidden">
+        <div class="c2-images">
+          <img
+            src="https://365datascience.com/wp-content/uploads/2020/04/full-code-1024x247.png"
+            alt="header"
+          />
+        </div>
+        <div class="c2-details">
+          HTTP headers let the client and the server pass additional information
+          with an HTTP request or response. An HTTP header consists of its
+          case-insensitive name followed by a colon (:), then by its value.
+          Whitespace before the value is ignored.<br /><br />
+          Custom proprietary headers have historically been used with an X-
+          prefix, but this convention was deprecated in June 2012 because of the
+          inconveniences it caused when nonstandard fields became standard in
+          RFC 6648; others are listed in an IANA registry, whose original
+          content was defined in RFC 4229. IANA also maintains a registry of
+          proposed new HTTP headers.<br /><br />
+          <b>Headers can be grouped according to their contexts:</b><br /><br />
+          <ul>
+            <li>
+              General headers apply to both requests and responses, but with no
+              relation to the data transmitted in the body.
+            </li>
+            <li>
+              Request headers contain more information about the resource to be
+              fetched, or about the client requesting the resource.
+            </li>
+            <li>
+              Response headers hold additional information about the response,
+              like its location or about the server providing it.
+            </li>
+            <li>
+              Entity headers contain information about the body of the resource,
+              like its content length or MIME type.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="desc5" style="visibility: hidden">
+        <div class="c2-images">
+          <img
+            src="https://loadstorm.com/wp-content/uploads/2013/08/CDN-Diagrams_files.jpg"
+            alt="origin"
+          />
+          <img
+            src="https://blog.cloudflare.com/content/images/2015/02/illustration-strict-ssl--2-.png"
+            alt="origin"
+          />
+        </div>
+        <div class="c2-details">
+          The purpose of an origin server is to process and respond to incoming
+          internet requests from internet clients. The concept of an origin
+          server is typically used in conjunction with the concept of an edge
+          server or caching server. At its core, an origin server is a computer
+          running one or more programs that are designed to listen for and
+          process incoming internet requests. An origin server can take on all
+          the responsibility of serving up the content for an internet property
+          such as a website, provided that the traffic does not extend beyond
+          what the server is capable of processing and latency is not a primary
+          concern. The physical distance between an origin server and a client
+          making a request adds latency to the connection, increasing the time
+          it takes for an internet resource such as a webpage to be loaded. The
+          additional round-trip time (RTT) between client and origin server
+          required for a secure internet connection using SSL/TLS also add
+          additional latency to the request, directly impacting the experience
+          of the client requesting data from the origin. By using a Content
+          Distribution Network (CDN) round-trip time is able to be reduced, and
+          the amount of requests to an origin server are also able to be
+          reduced.
+        </div>
+      </div>
+      <div id="desc6" style="visibility: hidden">
+        <div class="c2-images">
+          <img
+            src="https://loadstorm.com/wp-content/uploads/2013/08/CDN-Diagrams_files.jpg"
+            alt="cors"
+          />
+          <img
+            src="https://miro.medium.com/max/2800/0*heiz7awNkQ1B0O8e.png"
+            alt="cors"
+          />
+        </div>
+        <div class="c2-details">
+          Cross-Origin Resource Sharing (CORS) is an instrument that utilizes
+          extra HTTP headers to advise browsers to give a web application
+          running at one end, access to chosen assets from an alternate starting
+          point. A web application executes a cross-starting point HTTP demand
+          when it demands an asset that has alternate inception (space,
+          convention, or port) from its own.
+          <br /><br />
+          CORS is a security policy that has been declared by W3C on how systems
+          should communicate between different domains. These set of rules allow
+          the client-server communication between the same domains & restricts
+          cross-origin communications to a few techniques.
+          <br /><br />
+          While working with the REST APIs or web applications, we all might
+          have come across certain errors in browser console namely, “request
+          blocked by CORS policy” or “Access-Control-Allow-Origin”. These are
+          called CORS errors and below is the elaborate explanation regarding
+          the same.
+        </div>
+      </div>
+    </div>
+    <script>
+      function Changer(event) {
+        var ele1 = document.getElementById('desc1');
+        var ele2 = document.getElementById('desc2');
+        var ele3 = document.getElementById('desc3');
+        var ele4 = document.getElementById('desc4');
+        var ele5 = document.getElementById('desc5');
+        var ele6 = document.getElementById('desc6');
+
+        ele1.style.visibility = 'hidden';
+        ele2.style.visibility = 'hidden';
+        ele3.style.visibility = 'hidden';
+        ele4.style.visibility = 'hidden';
+        ele5.style.visibility = 'hidden';
+        ele6.style.visibility = 'hidden';
+        var button = event.target;
+        if (button.id == 'csm') {
+          ele1.style.visibility = 'visible';
+        }
+        if (button.id == 'ports') {
+          ele2.style.visibility = 'visible';
+        }
+        if (button.id == 'dns') {
+          ele3.style.visibility = 'visible';
+        }
+        if (button.id == 'headers') {
+          ele4.style.visibility = 'visible';
+        }
+        if (button.id == 'origins') {
+          ele5.style.visibility = 'visible';
+        }
+        if (button.id == 'cors') {
+          ele6.style.visibility = 'visible';
+        }
+      }
+
+      var topics = document.querySelectorAll('.topic-button');
+      for (var i = 0; i < topics.length; i++) {
+        topics[i].addEventListener('click', Changer);
+      }
+    </script>
+  </body>
+</html>

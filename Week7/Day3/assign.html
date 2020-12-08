@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .container {
+        height: 100vh;
+        background: linear-gradient(145deg, #d79829, #b58022);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container-1 {
+        width: 90%;
+        height: 70%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .container-2 {
+        width: 90%;
+        height: 20%;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .container-2 > div {
+        width: 15%;
+        height: 30%;
+        border-radius: 50px;
+        border: 0px;
+        font-size: 1vw;
+        background: linear-gradient(145deg, #d79829, #b58022);
+        box-shadow: 5px 5px 23px #7b5717, -5px -5px 23px #ffc535;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .box {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .box > :nth-child(2) {
+        font-size: 1.2vw;
+      }
+      .hours,
+      .minutes,
+      .seconds,
+      .milliSeconds {
+        width: 10vw;
+        height: 10vw;
+        padding: 2vw;
+        margin: 2vw;
+        display: flex;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+        font-size: 4vw;
+        box-shadow: 5px 5px 23px #7b5717, -5px -5px 23px #ffc535;
+      }
+
+      .hours:hover,
+      .minutes:hover,
+      .seconds:hover,
+      .milliSeconds:hover {
+        transform: translateY(20px);
+        transition: 0.25s ease-in-out all;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-1">
+        <div class="box">
+          <div class="hours">
+            <p id="hours">0</p>
+          </div>
+          <div>Hours</div>
+        </div>
+        <div class="box">
+          <div class="minutes">
+            <p id="minutes">0</p>
+          </div>
+          <div>Minutes</div>
+        </div>
+        <div class="box">
+          <div class="seconds">
+            <p id="seconds">0</p>
+          </div>
+          <div>Seconds</div>
+        </div>
+        <div class="box">
+          <div class="milliSeconds">
+            <p id="milliSeconds">0</p>
+          </div>
+          <div>Milli Seconds</div>
+        </div>
+      </div>
+      <div class="container-2">
+        <div id="startTimer">Start</div>
+        <div id="stopTimer">Stop</div>
+        <div id="resetTimer">Reset</div>
+      </div>
+    </div>
+    <script>
+      var hours = document.getElementById('hours');
+      var mins = document.getElementById('minutes');
+      var secs = document.getElementById('seconds');
+      var msecs = document.getElementById('milliSeconds');
+
+      function startTimerHelper() {
+        var startMSec = true;
+
+        if (msecs.innerHTML == 996) {
+          secs.innerHTML = Number(secs.innerHTML) + 1;
+          msecs.innerHTML = 0;
+          startMSec = false;
+        }
+
+        if (secs.innerHTML == 60) {
+          mins.innerHTML = Number(mins.innerHTML) + 1;
+          secs.innerHTML = 0;
+        }
+
+        if (mins.innerHTML == 60) {
+          hours.innerHTML = Number(hours.innerHTML) + 1;
+          mins.innerHTML = 0;
+        }
+
+        if (startMSec == true) {
+          msecs.innerHTML = Number(msecs.innerHTML) + 4;
+        }
+      }
+
+      function startTimer() {
+        hours.innerHTML = 0;
+        mins.innerHTML = 0;
+        secs.innerHTML = 0;
+        msecs.innerHTML = 0;
+
+        var stopId = setInterval(startTimerHelper, 1);
+        var stopper = document.getElementById('stopTimer');
+        stopper.addEventListener('click', function () {
+          clearInterval(stopId);
+        });
+
+        var reset = document.getElementById('resetTimer');
+        reset.addEventListener('click', function () {
+          clearInterval(stopId);
+          hours.innerHTML = 0;
+          mins.innerHTML = 0;
+          secs.innerHTML = 0;
+          msecs.innerHTML = 0;
+        });
+      }
+
+      var start = document.getElementById('startTimer');
+      start.addEventListener('click', startTimer);
+    </script>
+  </body>
+</html>
