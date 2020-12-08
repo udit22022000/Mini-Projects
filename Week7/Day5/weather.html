@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weatherApi</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      button {
+        width: 7%;
+      }
+
+      .card {
+        width: 270px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid black;
+        align-items: center;
+        border-radius: 10px;
+      }
+
+      .card > img {
+        width: 100%;
+        height: 65%;
+      }
+    </style>
+  </head>
+  <body>
+    <br /><br />
+    <button id="get_weather">GET</button><br />
+    <label for="city">Enter City Name</label>
+    <input id="city" />
+    <br /><br />
+    <script>
+      function loadText() {
+        var xhr = new XMLHttpRequest();
+        var city = document.getElementById('city').value;
+        var url =
+          'http://api.weatherapi.com/v1/current.json?key=eaf637c4cbae4cdba70150833200312&q=' +
+          city;
+
+        xhr.open('GET', url);
+        var body = document.querySelector('body');
+        xhr.onload = function () {
+          var reply = JSON.parse(this.responseText);
+          if (this.readyState == 4 && this.status == 200) {
+            var location = reply.location;
+            var country = location.country;
+            var latitude = location.lat;
+            var longitude = location.lon;
+            var ctemp = reply.current.temp_c + ' C';
+            var text = reply.current.condition.text;
+            var icon = 'https:' + reply.current.condition.icon;
+            var html = '';
+            html += `<div class="card">
+                    <div><b>City:</b> ${city}</div>
+                    <div><b>Country:</b> ${country}</div>
+                    <div><b>Latitude:</b> ${latitude}</div>
+                    <div><b>Longitude:</b> ${longitude}</div>
+                    <div><b>Temperature:</b> ${ctemp}</div>
+                    <div><b>Condition:</b> ${text}</div>
+                    <img src=${icon}>
+                    </div>`;
+          }
+
+          body.innerHTML += html;
+        };
+        xhr.send();
+      }
+
+      var get_button = document.getElementById('get_weather');
+      get_button.addEventListener('click', loadText);
+    </script>
+  </body>
+</html>

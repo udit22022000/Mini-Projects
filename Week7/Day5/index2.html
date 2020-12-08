@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Ordering App</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .left {
+        width: 20%;
+        height: 100%;
+        min-width: 230px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left > div {
+        margin-bottom: 20px;
+      }
+
+      #submit {
+        width: 50%;
+      }
+      .right {
+        width: 80%;
+        height: 100%;
+        border: 1px slid black;
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        align-items: center;
+      }
+
+      #see_orders {
+        width: 170px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      #right-orders > tr:nth-child(even) {
+        background-color: black;
+        color: blanchedalmond;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <div>
+        <label for="ord_no">Order No</label><br />
+        <input id="ord_no" type="number" />
+      </div>
+      <div>
+        <label for="dish_name">Dish Name</label><br />
+        <input id="dish_name" type="text" />
+      </div>
+      <div>
+        <label for="qty">Quantity</label><br />
+        <input id="qty" type="number" />
+      </div>
+      <button id="submit">SUBMIT</button>
+    </div>
+    <div class="right">
+      <button id="see_orders">SEE ORDERS</button><br /><br /><br />
+
+      <table>
+        <thead>
+          <tr>
+            <td><b>Order No</b></td>
+            <td><b>Dish Name</b></td>
+            <td><b>Quantity</b></td>
+          </tr>
+        </thead>
+        <tbody id="right-orders"></tbody>
+      </table>
+    </div>
+    <script>
+      function display() {
+        var OrderList = document.getElementById('right-orders');
+        var listStorage = localStorage.getItem('listStorage');
+        listStorage = JSON.parse(listStorage);
+        var html = '';
+        if (listStorage == null) {
+          return;
+        }
+        for (var i = 0; i < listStorage.length; i++) {
+          var order = listStorage[i];
+          html += `<tr>
+                        <td>${order.ord_no}</td>
+                        <td>${order.dish_name}</td>
+                        <td>${order.quantity}</td>
+                        </tr>`;
+        }
+
+        OrderList.innerHTML = html;
+      }
+
+      function main() {
+        var ord_no = document.getElementById('ord_no').value;
+        var dish_name = document.getElementById('dish_name').value;
+        var quantity = document.getElementById('qty').value;
+
+        var listStorage = localStorage.getItem('listStorage');
+        console.log(listStorage);
+        if (listStorage == null) {
+          listStorage = [];
+        } else {
+          listStorage = JSON.parse(listStorage);
+        }
+        listStorage.push({
+          ord_no: ord_no,
+          dish_name: dish_name,
+          quantity: quantity,
+        });
+        console.log(listStorage);
+        localStorage.setItem('listStorage', JSON.stringify(listStorage));
+        display();
+      }
+
+      var submit_btn = document.getElementById('submit');
+      submit_btn.addEventListener('click', main);
+
+      var see = document.getElementById('see_orders');
+      see.addEventListener('click', display);
+    </script>
+  </body>
+</html>
