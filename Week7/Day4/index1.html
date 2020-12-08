@@ -1,0 +1,86 @@
+<!-- API-key:  fbd143ffd8064f0f8249a10ecb3efad0 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn-1 {
+        width: 70px;
+        height: 30px;
+        font-weight: bold;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      .toDoS {
+        height: 30px;
+      }
+
+      #todoList > tr:nth-child(odd) {
+        background-color: black;
+        color: blanchedalmond;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn-1" class="btn-1">TODO's</button>
+    <table class="todoList">
+      <tbody id="todoList"></tbody>
+    </table>
+    <script>
+      function loadText() {
+        var xhr = new XMLHttpRequest();
+        var url = 'http://jsonplaceholder.typicode.com/todos';
+
+        xhr.open('GET', url);
+
+        xhr.onload = function () {
+          var data = JSON.parse(this.responseText);
+          if (this.readyState == 4 && this.status == 200) {
+            var html = `<thead>
+                        <tr>
+                        <th>UserId</th>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Completed</th>
+                        </tr>
+                        </thead>`;
+            for (i in data) {
+              var ele = data[i];
+              html += `<tr class="toDoS">
+                        <td>${ele.userId}</td>
+                        <td>${ele.id}</td>
+                        <td>${ele.title}</td>
+                        <td>${ele.completed}</td>
+                        </tr>`;
+            }
+          }
+          document.getElementById('todoList').innerHTML = html;
+        };
+
+        xhr.send();
+      }
+
+      document.getElementById('btn-1').addEventListener('click', loadText);
+    </script>
+  </body>
+</html>

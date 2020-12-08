@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>XHR</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn-1 {
+        width: 70px;
+        height: 30px;
+      }
+
+      .news {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .card {
+        width: 300px;
+        height: 400px;
+        margin: 20px;
+        border: 1px solid grey;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: space-between;
+      }
+      .card > img {
+        width: 100%;
+        height: 265px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <br /><br />
+    <p>
+      XMLHttpRequest is a built-in browser object in all modern browsers that
+      can be used to make HTTP requests in JavaScript to exchange data between
+      the web browser and the server.<br /><br />
+      To send an HTTP request using XHR, create an XMLHttpRequest object, open a
+      connection to URL, and send the request. Once the request completes, the
+      object will contain useful information such as the response body and the
+      HTTP status code.
+    </p>
+    <br /><br />
+    <button id="btn-1" class="btn-1">GET</button>
+    <div class="main" id="news"></div>
+    <script>
+      function loadText() {
+        var xhr = new XMLHttpRequest();
+        var url = 'https://randomuser.me/api/';
+
+        xhr.open('GET', url);
+
+        xhr.onload = function () {
+          var data = JSON.parse(this.responseText);
+          if (this.readyState == 4 && this.status == 200) {
+            var html = '';
+            var content = data.results[0];
+            var dp = content.picture.large;
+            var name =
+              content.name.title +
+              ' ' +
+              content.name.first +
+              ' ' +
+              content.name.last;
+            var email = content.email;
+            var gender = content.gender;
+            var city = content.location.city;
+            var state = content.location.state;
+            var country = content.location.country;
+            console.log(name, email, gender, city, state);
+            html += `<div class="card">
+                    <img src="${dp}" />
+                    <div><b>Name</b>:  ${name}</div>
+                    <div><b>Email_id</b>:  ${email}</div>`;
+
+            if (gender == 'female') {
+              html += `<div><b>Gender</b>: <i class="fa fa-female" style="font-size:24px"></i></div>`;
+            } else {
+              html += `<div><b>Gender</b>: <i class="fa fa-male" style="font-size:24px"></i></div>`;
+            }
+
+            html += `<div><b>City</b>: ${city}</div>
+                    <div><b>State</b>: ${state}</div>
+                    <div><b>Country</b>: ${country}</div>
+                    </div>`;
+          }
+          document.getElementById('news').innerHTML = html;
+        };
+
+        xhr.send();
+      }
+
+      document.getElementById('btn-1').addEventListener('click', loadText);
+    </script>
+  </body>
+</html>

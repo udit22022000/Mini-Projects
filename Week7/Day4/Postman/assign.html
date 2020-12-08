@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      .container-1 {
+        width: 75vw;
+        height: auto;
+        margin: 10px auto;
+        padding: 10px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .topic-button {
+        width: 180px;
+        height: 20px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .topic-button:hover {
+        text-decoration: underline;
+      }
+
+      .container-2 {
+        width: 75vw;
+        height: 70vh;
+        position: relative;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container-2 > div {
+        width: 80%;
+        height: 90%;
+        position: absolute;
+        overflow-y: scroll;
+      }
+
+      .c2-images {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .c2-images > img {
+        width: 100%;
+      }
+
+      .c2-details {
+        width: 100%;
+        padding-top: 20px;
+        text-align: center;
+      }
+
+      @media only screen and (max-width: 900px) {
+        .container-1 {
+          width: 95vw;
+        }
+
+        .container-2 {
+          width: 95vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="topic-button" id="csm">GET</div>
+      <div class="topic-button" id="ports">POST</div>
+      <div class="topic-button" id="dns">PUT</div>
+      <div class="topic-button" id="headers">DELETE</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1" style="visibility: hidden">
+        <div class="c2-images">
+          <img src="get.png" alt="Get Request" />
+        </div>
+        <div class="c2-details">
+          GET method is used to retrieve information from the given server using
+          a given URI.
+        </div>
+      </div>
+      <div id="desc2" style="visibility: hidden">
+        <div class="c2-images">
+          <img src="post1.png" alt="Post Request" />
+          <img src="post2.png" alt="Post Request" />
+        </div>
+        <div class="c2-details">
+          POST request method requests that a web server accepts the data
+          enclosed in the body of the request message, most likely for storing
+          it
+        </div>
+      </div>
+      <div id="desc3" style="visibility: hidden">
+        <div class="c2-images">
+          <img src="put.png" alt="Put Request" />
+        </div>
+        <div class="c2-details">
+          The PUT method requests that the enclosed entity be stored under the
+          supplied URI. If the URI refers to an already existing resource, it is
+          modified and if the URI does not point to an existing resource, then
+          the server can create the resource with that URI.
+        </div>
+      </div>
+      <div id="desc4" style="visibility: hidden">
+        <div class="c2-images">
+          <img src="delete.png" alt="Delete Request" />
+        </div>
+        <div class="c2-details">
+          The DELETE method deletes the specified resource
+        </div>
+      </div>
+    </div>
+    <script>
+      function Changer(event) {
+        var ele1 = document.getElementById('desc1');
+        var ele2 = document.getElementById('desc2');
+        var ele3 = document.getElementById('desc3');
+        var ele4 = document.getElementById('desc4');
+
+        ele1.style.visibility = 'hidden';
+        ele2.style.visibility = 'hidden';
+        ele3.style.visibility = 'hidden';
+        ele4.style.visibility = 'hidden';
+
+        var button = event.target;
+        if (button.id == 'csm') {
+          ele1.style.visibility = 'visible';
+        }
+        if (button.id == 'ports') {
+          ele2.style.visibility = 'visible';
+        }
+        if (button.id == 'dns') {
+          ele3.style.visibility = 'visible';
+        }
+        if (button.id == 'headers') {
+          ele4.style.visibility = 'visible';
+        }
+      }
+
+      var topics = document.querySelectorAll('.topic-button');
+      for (var i = 0; i < topics.length; i++) {
+        topics[i].addEventListener('click', Changer);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!-- API-key:  fbd143ffd8064f0f8249a10ecb3efad0 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News API</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn-1 {
+        width: 70px;
+        height: 30px;
+      }
+
+      .news {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .card {
+        width: 200px;
+        margin: 20px;
+        border: 1px solid grey;
+        border-radius: 10px;
+      }
+      .card > img {
+        width: 100%;
+        height: 132px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn-1" class="btn-1">GET</button>
+    <div class="news" id="news"></div>
+    <script>
+      function loadText() {
+        var xhr = new XMLHttpRequest();
+        var url =
+          'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=fbd143ffd8064f0f8249a10ecb3efad0';
+
+        xhr.open('GET', url);
+
+        xhr.onload = function () {
+          var data = JSON.parse(this.responseText);
+          var articles = data.articles;
+          if (this.readyState == 4 && this.status == 200) {
+            var html = '';
+            for (i in articles) {
+              html += `<div class="card">
+                        <img class="cardImage" src="${articles[i].urlToImage}"></img>
+                        <p class="cardTitle">${articles[i].title}</p>
+                        </div>`;
+            }
+          }
+          document.getElementById('news').innerHTML = html;
+        };
+
+        xhr.send();
+      }
+
+      document.getElementById('btn-1').addEventListener('click', loadText);
+    </script>
+  </body>
+</html>
