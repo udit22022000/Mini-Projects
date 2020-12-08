@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .about {
+                width: 800px;
+                height: 40vh;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: start;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .about > h3 {
+                margin: auto;
+                font-size: 23px;
+            }
+
+            .about > p {
+                font-size: 18px;
+                margin: auto;
+            }
+            
+            #main {
+                width: 800px;
+                height: 50vh;
+                margin: auto;
+            }
+
+            #main > button{
+                margin: 20px 10px;
+                color: #FFEB3B;
+                background-color: darkcyan;
+            }
+
+            #main > label {
+                display: inline-block;
+                border: 1px solid black;
+                width: 25%;
+                font-family: 'Roboto', sans-serif;
+                background-color: slategray;
+                color: floralwhite;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <div class="about">
+            <h3>CONSTRUCTOR</h3>
+            <p>A constructor is a function that creates an instance of a class which is typically called an object. In JavaScript, a constructor gets called when you declare an object using the new keyword.
+                The purpose of a constructor is to create an object and set values if there are any object properties present. It’s a neat way to create an object because you do not need to explicitly state what to return as the constructor function, by default, returns the object that gets created within it.</p>
+            <pre>
+                Example :
+
+                function mates(fn,ln,add){
+                    this.first_name = fn;
+                    this.last_name = ln;
+                    this.address = add;
+                }
+
+                var p1 = new mates("udit","kumar","bokaro")
+
+                console.log(p1);
+            </pre>
+        </div>
+        <div id="main">
+            <label>String</label>
+            <button class="button1">Who Am I</button><br/>
+            <label>Object</label>
+            <button class="button2">Who Am I</button></br>
+            <label>Boolean</label>
+            <button class="button3">Who Am I</button></br>
+            <label>Number</label>
+            <button class="button4">Who Am I</button></br>
+            <label>Array</label>
+            <button class="button5">Who Am I</button></br>
+            <label>Function</label>
+            <button class="button6">Who Am I</button></br>
+            <label>Regexp</label>
+            <button class="button7">Who Am I</button></br>
+            <label>Date</label>
+            <button class="button8">Who Am I</button></br>  
+            
+        </>
+        <script>
+            var str=document.querySelector(".button1")
+            str.addEventListener('click',function(){
+                var string=new String("HI")
+                console.log(alert(typeof string))
+            })
+
+
+            var obj=document.querySelector(".button2")
+            obj.addEventListener('click',function(){
+
+                var mates=function (fn,ln,add){
+                    this.first_name = fn;
+                    this.last_name = ln;
+                    this.address = add;
+                }
+
+                var p1 = new mates("udit","kumar","bokaro")
+
+                alert(typeof p1)
+            })
+
+            var bool=document.querySelector(".button3")
+            bool.addEventListener('click',function(){
+                var bool=new Boolean(1)
+                alert(typeof bool)
+            })
+
+
+            var num=document.querySelector('.button4')
+            num.addEventListener('click',function(){
+                var num= new Number('1000')
+                alert(typeof num)
+            })
+
+
+            var array=document.querySelector('.button5')
+            array.addEventListener('click',function(){
+                var arr=new Array('udit','sahil')
+                alert(typeof arr)
+            })
+
+
+            var fun=document.querySelector('.button6')
+            fun.addEventListener('click',function(){
+
+                function func(){
+                return  new Function();
+                }
+                var fn= func()
+                alert(typeof fn)
+            })
+
+
+            var reg=document.querySelector('.button7')
+            reg.addEventListener('click',function(){
+                var re=new RegExp('ab+x','i')
+                alert(typeof re)
+            })
+
+            var date=document.querySelector('.button8')
+            date.addEventListener('click',function(){
+                var dates=new Date()
+                alert(typeof dates)
+            })
+            
+        </script>
+
+
+    </body>
+
+</html>
+
