@@ -1,0 +1,18 @@
+.container > h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5ch;
+}
+
+.input-field {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.taskList {
+  margin: auto;
+}
+
+body {
+  background-color: bisque;
+}

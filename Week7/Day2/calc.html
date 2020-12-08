@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>You_calc</title>
+  </head>
+  <style type="text/css">
+    * {
+      margin: 0px;
+      box-sizing: border-box;
+    }
+
+    .main {
+      width: 25vw;
+      margin: 10vh auto;
+      border: 1px solid black;
+      min-width: 300px;
+    }
+
+    .main > div {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .main_1 {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    #input_1,
+    #input_2 {
+      width: 70px;
+      height: 50px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .main_1 > * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #display {
+      width: 50%;
+    }
+
+    #output {
+      width: 100%;
+      height: 50px;
+      border: 1px solid red;
+      border-radius: 6px;
+    }
+
+    .main_1 > * > :nth-child(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main_2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .operation {
+      cursor: pointer;
+      font-size: 25px;
+      width: 70px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid brown;
+      border-radius: 6px;
+    }
+
+    .operation:hover {
+      background-color: red;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="main">
+      <h2>CALCULATOR</h2>
+      <div class="main_1">
+        <div>
+          <label for="input_1">INPUT-1</label>
+          <input type="number" id="input_1" />
+        </div>
+        <div id="display">
+          <div>OUTPUT</div>
+          <div id="output"></div>
+        </div>
+        <div>
+          <label for="input_2">INPUT-2</label>
+          <input type="number" id="input_2" />
+        </div>
+      </div>
+
+      <div class="main_2">
+        <div class="operation" id="add">+</div>
+        <div class="operation" id="sub">-</div>
+        <div class="operation" id="mul">*</div>
+        <div class="operation" id="div">/</div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function Calculate(event) {
+        var value1 = document.getElementById('input_1').value;
+        var value2 = document.getElementById('input_2').value;
+        var opr = event.target.id;
+        var result = document.getElementById('output');
+        var value = 0;
+        if (opr == 'add') {
+          value = Number(value1) + Number(value2);
+          result.textContent = value;
+          localStorage.setItem(value1 + '+' + value2, value);
+        } else if (opr == 'sub') {
+          value = Number(value1) - Number(value2);
+          result.textContent = value;
+          localStorage.setItem(value1 + '-' + value2, value);
+        } else if (opr == 'mul') {
+          value = Number(value1) * Number(value2);
+          result.textContent = value;
+          localStorage.setItem(value1 + '*' + value2, value);
+        } else if (opr == 'div') {
+          value = Number(value1) / Number(value2);
+          result.textContent = value;
+          localStorage.setItem(value1 + '/' + value2, value);
+        }
+      }
+      var elements = document.querySelectorAll('.operation');
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', Calculate);
+      }
+    </script>
+  </body>
+</html>

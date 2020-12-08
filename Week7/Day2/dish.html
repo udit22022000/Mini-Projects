@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 10vw;
+        margin: 200px auto;
+      }
+    </style>
+  </head>
+  <div>
+    <button id="eraser">Click over Me to clear the local storage</button>
+  </div>
+  <body>
+    <script>
+      var idli = ['rice', 'daal', 'sambar', 'spices'];
+      for (ele in idli) {
+        localStorage.setItem(ele, idli[ele]);
+      }
+
+      var ele = document.getElementById('eraser');
+      ele.addEventListener('click', function () {
+        localStorage.clear();
+      });
+    </script>
+  </body>
+</html>
