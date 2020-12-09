@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="you.css" />
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="topic-button" id="first">EVENT LOOP</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1">
+        <div class="c2-images">
+          <b>EXAMPLE :</b>
+          <pre>
+            for (var i = 1; i <= 3; i++) {
+              setTimeout(
+                  function() {
+                      console.log(i);
+                  },0);
+          }
+          </pre>
+          <p class="c2-details">
+            <b>STEP 1:</b>
+            In the step 1, javascript virtual machine scans through the whole
+            code. Each and every line is initially put into a call stack and is
+            executed and then thrown out of the stack.During the execution when
+            any web api triggering function is encountered, that chunk of the
+            code is thrown into WEB API container.
+          </p>
+          <br />
+          <img src="1.png" alt="step 1" />
+
+          <br /><br />
+          <p class="c2-details">
+            <b>STEP 2:</b>
+            Api does it's work and after that the code is transferred from api
+            container to callback Queue.
+          </p>
+          <br />
+          <img src="2.png" alt="step 2" />
+
+          <br /><br />
+          <p class="c2-details">
+            <b>STEP 3:</b>
+            After the execution of whole code that is present in the main
+            function and when the call stack becomes empty, the control shifts
+            to the call back queue. Functions residing in the call back queue is
+            taken out one by one and put into call stack and is executed.
+          </p>
+          <br />
+          <img src="3.png" alt="step 3" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
