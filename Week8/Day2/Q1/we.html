@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="we.css" />
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="topic-button" id="first">FIRST QUESTION</div>
+      <div class="topic-button" id="second">SECOND QUESTION</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1" style="visibility: hidden">
+        <div class="c2-images">
+          <pre>
+            for (var i = 1; i <= 3; i++) {
+              setTimeout(
+                  function() {
+                      console.log(i);
+                  },0);
+          }
+        </pre
+          >
+          <p class="c2-details">
+            <b>STEP 1:</b>
+            Firstly, for loop gets executed, and function residing inside
+            setTimeOut is passed on to web API container as many times the loop
+            runs. As soon as the i becomes 4 control comes outside the loop.
+          </p>
+          <br />
+          <img src="1.png" alt="step 1" />
+
+          <br /><br />
+          <p class="c2-details">
+            <b>STEP 2:</b>
+            API tranfers all the functions from Web api container to the
+            callback queue after 0 seconds ,of function getting into the
+            container.
+          </p>
+          <br />
+          <img src="2.png" alt="step 2" />
+
+          <br /><br />
+          <p class="c2-details">
+            <b>STEP 3:</b>
+            After the execution of whole code that is present in the main
+            function and when the call stack becomes empty, the control shifts
+            to the call back queue. Functions residing in the call back queue is
+            taken out one by one and put into call stack and is executed. Since
+            the final value of i was 4 ...so 4 gets printed 3 times since there
+            were three functions inside call back queue.
+          </p>
+          <br />
+          <img src="3.png" alt="step 3" />
+        </div>
+      </div>
+      <div id="desc2" style="visibility: hidden">
+        <div class="c2-images">
+          <pre>
+              var start = new Date;
+              setTimeout(
+                  function() {
+                      var end = new Date;
+                      console.log('Time elapsed:', end - start, 'ms');
+                  }, 500);
+
+              while (new Date - start < 1000) {};
+          </pre>
+          <p class="c2-details">
+            <b>STEP 1:</b>
+            Javascript virtual machine scans through the whole code. Initially
+            the first line of the code is put into call stack, then start
+            variable is defined with the current time stamp. Thereafter
+            setTimeout function is encountered and that chunk of code is put
+            into web api container.
+          </p>
+          <br />
+          <img src="y1.png" alt="step 1" />
+
+          <br /><br />
+          <p class="c2-details">
+            <b>STEP 2:</b>
+            After that while loop is encountered, and that loop will keep on
+            executing till the duration becomes more than one second. Till then
+            function inside setTimeout function shifts itself to the callback
+            queue.
+          </p>
+          <br />
+          <img src="y2.png" alt="step 2" />
+          <img src="y3.png" alt="step 3" />
+
+          <br /><br />
+          <p class="c2-details">
+            <b>STEP 3:</b>
+            At last, the setTimeOut function residing inside the call back queue
+            is pulled off, put into the call stack and executed. At last, Time
+            Elapsed is printed.
+          </p>
+          <br />
+          <img src="y4.png" alt="step 4" />
+        </div>
+      </div>
+    </div>
+    <script src="we.js"></script>
+  </body>
+</html>
