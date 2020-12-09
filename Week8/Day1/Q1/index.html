@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prototypical Chain Depth</title>
+  </head>
+  <body>
+    <h3>PROTOTYPE</h3>
+    <p>
+      Prototypes in JavaScript is nothing but a special set of properties which
+      an object holds. Almost everything in JavaScript is derived from Object.
+      Each object holds it's own set of prototype properties.
+    </p>
+    <pre>
+      var fooFunc = function() {
+        return {
+            foo: 42
+        }
+    };
+    fooFunc.prototype.bar = 'baz';
+    var fooVal = fooFunc();
+    console.log(fooVal);   // {foo: 42}
+    console.log(fooFunc.prototype);     // {bar: "baz", constructor: ƒ}
+    </pre>
+    <h3>__proto__</h3>
+    <p>
+      Whenever we create an instance of any class, the prototype of the class is
+      created in object as well. we have to check it in __proto__ property. this
+      property contains the prototype of it’s class
+    </p>
+    <img src="proto.png" width="400px" />
+  </body>
+</html>
