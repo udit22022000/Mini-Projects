@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="assign.css" />
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="topic-button" id="first">FIRE COUNT</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1">
+        <div class="c2-images">
+          <pre>
+            var fireCount = 0;
+            var start = new Date;
+            var timer = setInterval(function() {
+                    if (new Date - start > 1000) {
+                    clearInterval(timer);
+                    console.log(fireCount);
+                    return;
+                }
+                fireCount++;
+            }, 0);
+          </pre>
+          <div id="fire_count"></div>
+          <p class="c2-details">
+            As the code starts executing, fireCount and start variable gets
+            defined. After that timer function is put into web api container,
+            from there it is tranferred to callback queue. After the call stack
+            becomes empty, timer function is taken out, and it is being executed
+            till the if condition becomes true, when the duration becomes more
+            than 1 sec, clearinterval gets executed , which leads to stop
+            execution of the timer function, and finlly firecount is printed to
+            the console.
+          </p>
+          <br />
+          <img src="assign1.png" alt="step 1" />
+        </div>
+      </div>
+    </div>
+    <script src="assign.js"></script>
+  </body>
+</html>
