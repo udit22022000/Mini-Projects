@@ -1,0 +1,21 @@
+.crypto_table {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+table,
+tr,
+td {
+  border: 1px solid black;
+}
+
+thead > tr > td {
+  font-weight: bold;
+}
+
+#crypt_items > tr:hover {
+  background-color: black;
+  color: blanchedalmond;
+  transform: scale(1.1, 1.1);
+}
