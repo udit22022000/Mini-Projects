@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRYPTO WALL</title>
+    <link rel="stylesheet" href="crypto.css" />
+  </head>
+  <body>
+    <input type="text" required placeholder="Enter the Symbol" id="symbol" />
+    <input type="text" required placeholder="Enter the Name" id="name" />
+    <input type="text" required placeholder="Enter the Rank" id="rank" />
+    <input
+      type="text"
+      required
+      placeholder="Enter the Price Used"
+      id="price_used"
+    />
+    <input
+      type="text"
+      required
+      placeholder="Enter the Market Cap Used"
+      id="market_cap_used"
+    />
+    <button id="btn-1">GET</button>
+    <button id="btn-2">POST</button><br />
+    <h4>
+      Enter the latest content that are to be updated for a particular Row..
+    </h4>
+    <input type="text" required placeholder="Enter the Symbol" id="Usymbol" />
+    <input type="text" required placeholder="Enter the Name" id="Uname" />
+    <input type="text" required placeholder="Enter the Rank" id="Urank" />
+    <input
+      type="text"
+      required
+      placeholder="Enter the Price Used"
+      id="Uprice_used"
+    />
+    <input
+      type="text"
+      required
+      placeholder="Enter the Market Cap Used"
+      id="Umarket_cap_used"
+    />
+    <br /><br />
+    <div class="crypto_table">
+      <table>
+        <thead>
+          <tr>
+            <td>Symbol</td>
+            <td>Name</td>
+            <td>Rank</td>
+            <td>Price Used</td>
+            <td>Market Cap Used</td>
+            <td>Update</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody id="crypt_items"></tbody>
+      </table>
+    </div>
+
+    <script src="crypto.js"></script>
+  </body>
+</html>
