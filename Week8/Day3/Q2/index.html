@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="heading"><b>CLOSURES</b></div>
+
+    <div class="container-1">
+      <div class="topic-button" id="ex1">EXAMPLE-1</div>
+      <div class="topic-button" id="ex2">EXAMPLE-2</div>
+      <div class="topic-button" id="ex3">EXAMPLE-3</div>
+      <div class="topic-button" id="ex4">EXAMPLE-4</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1" style="visibility: hidden">
+        <div class="code">
+          <pre>
+            <b>CODE :</b><br>
+            function outer() {
+              var b = 10;
+              function inner() {
+                    var a = 20; 
+                    console.log(a+b);
+               }
+              return inner;
+           }
+          </pre>
+        </div>
+        <div class="explanation">
+          <b>EXPLANATION :</b><br /><br />
+          In this code, when outer function will be called, it returns the
+          function named inner. Inner function has use of value b, which is
+          inside the scope of it's parent function outer. So, closure is the one
+          which helps in accessing the value of b, if inner function requires it
+          later onn.
+        </div>
+      </div>
+      <div id="desc2" style="visibility: hidden">
+        <div class="code">
+          <pre>
+            <b>CODE :</b><br>
+              var b = 2;
+
+              var addition = function () {
+                  var a = 1;
+                  return a + b;
+              }
+
+              console.log(addition());
+          </pre>
+        </div>
+        <div class="explanation">
+          <b>EXPLANATION :</b><br /><br />
+          In this question, there is use of closure in accessing the value of b
+          which is residing inside the parent fuction.
+        </div>
+      </div>
+      <div id="desc3" style="visibility: hidden">
+        <div class="code">
+          <pre>
+            <b>CODE :</b><br>
+              var counter = (function() {
+                var counterVariable = 0;
+                function changeBy(val) {
+                  counterVariable += val;
+                }
+                return {
+                  increment: function() {
+                    changeBy(2);
+                  },
+                  decrement: function() {
+                    changeBy(-3);
+                  },
+                  value: function() {
+                    return counterVariable;
+                  }
+                };   
+              })();
+              
+              console.log(counter.value()); 
+              counter.increment();
+              counter.increment();
+              counter.increment();
+              console.log(counter.value()); 
+              counter.decrement();
+              console.log(counter.value());
+          </pre>
+        </div>
+        <div class="explanation">
+          <b>EXPLANATION :</b><br /><br />
+          Initially, a global execution context will get created. Inside the
+          global execution context an anonymous function execution context will
+          get created, for the function whose returned value will be stored in
+          counter. <br /><br />This anonymous function will be returning an
+          object which comprises of three keys, increment, decrement and a
+          value. increment and decrement is pointing to a function which is
+          calling changeBy function, and since changeBy function has use of
+          variable which is inside the scope of it's parent function, so here
+          closure comes into picture. Closure is the one which helps in
+          accessing the value of variable counterVariable later onn, when
+          changeBy function is called again later.
+        </div>
+      </div>
+      <div id="desc4" style="visibility: hidden">
+        <div class="code">
+          <pre>
+            <b>CODE :</b><br>
+              var Random = (function () {
+                var i = 0;
+              return { 
+                    counter : i += 2 
+                };
+            })();
+          </pre>
+        </div>
+        <div class="explanation">
+          <b>EXPLANATION :</b><br /><br />
+          In this example, as the object is returned, the variable inside that
+          object can access the value of i afterwards because of closure.
+        </div>
+      </div>
+    </div>
+    <script>
+      function Changer(event) {
+        var ele1 = document.getElementById("desc1");
+        var ele2 = document.getElementById("desc2");
+        var ele3 = document.getElementById("desc3");
+        var ele4 = document.getElementById("desc4");
+
+        ele1.style.visibility = "hidden";
+        ele2.style.visibility = "hidden";
+        ele3.style.visibility = "hidden";
+        ele4.style.visibility = "hidden";
+
+        var button = event.target;
+        if (button.id == "ex1") {
+          ele1.style.visibility = "visible";
+        }
+        if (button.id == "ex2") {
+          ele2.style.visibility = "visible";
+        }
+        if (button.id == "ex3") {
+          ele3.style.visibility = "visible";
+        }
+        if (button.id == "ex4") {
+          ele4.style.visibility = "visible";
+        }
+      }
+
+      var topics = document.querySelectorAll(".topic-button");
+      for (var i = 0; i < topics.length; i++) {
+        topics[i].addEventListener("click", Changer);
+      }
+    </script>
+  </body>
+</html>
