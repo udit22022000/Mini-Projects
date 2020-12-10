@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="heading"><b>IMPORTANT</b></div>
+
+    <div class="container-1">
+      <div class="topic-button" id="ex1">CONTEXT</div>
+      <div class="topic-button" id="ex2">EXECUTION-CONTEXT</div>
+      <div class="topic-button" id="ex3">LEXICAL SCOPING</div>
+      <div class="topic-button" id="ex4">HOISTING</div>
+      <div class="topic-button" id="ex5">CURRYING</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1" style="visibility: hidden">
+        <img src="1.png" />
+        <div class="explanation">
+          Context in JavaScript refers to the object within which the function
+          being executed. this refers to the object that the function is
+          executing in.<br /><br />
+          The code provided above is getting executed inside the global object.
+        </div>
+      </div>
+      <div id="desc2" style="visibility: hidden">
+        <img src="2.png" />
+        <div class="explanation">
+          Each and every line of the code that we write in javascript gets
+          executed either in Global Execution Context or Functional Execution
+          Context.<br />
+          Refering to the above example, first and formost global execution gets
+          created. When outer function will be called, it creates it's own
+          functional execution context, within that it executes the code written
+          inside that function. Within the execution context of outer function,
+          a new functional execution for inner function is created and as the
+          outer function returns it's value, outer function execution context
+          gets scraped off from the memory.
+        </div>
+      </div>
+      <div id="desc3" style="visibility: hidden">
+        <img src="2.png" />
+        <div class="explanation">
+          In simple words, it means the children scope has access to the
+          variables defined in the parent scope. For instance, If I were to
+          define a function and declare a variable inside it and inside the very
+          same function, define another function, then I should be able to use
+          that variable inside the inner function because of lexical scoping.
+          <br />
+          Refering to the above example, we can see that inner function has
+          access to all the variables and functions that are within the scope of
+          parent function of inner function.
+        </div>
+      </div>
+      <div id="desc4" style="visibility: hidden">
+        <img src="3.png" />
+        <div class="explanation">
+          With the help of Hoisting, the variable and function declarations are
+          moved to tht top of code even before the code being executed.
+          <br />
+          Refering to the above example, the first console.log statement will be
+          producing Reference Error, because the name is not declared at all in
+          the whole code. The second console.log statement will be producing
+          undefined because due to hoisting age will be declared before
+          execution, but value will be assigned to age variable after printing
+          the value of age and for the last statement, email will get printed as
+          it is, since email will get declared and defined before it gets
+          printed.
+        </div>
+      </div>
+      <div id="desc5" style="visibility: hidden">
+        <img src="4.png" />
+        <div class="explanation">
+          Currying in Javascript basically refers to process in which we
+          transform a function with multiple arguments to a function with less
+          number of arguments.
+          <br />
+          From the above code we can see that how a complex code(code with n
+          arguments) can be broke into nested functions with x and (n-x)
+          arguments respectively with the help of curying.
+        </div>
+      </div>
+    </div>
+    <script>
+      function Changer(event) {
+        var ele1 = document.getElementById("desc1");
+        var ele2 = document.getElementById("desc2");
+        var ele3 = document.getElementById("desc3");
+        var ele4 = document.getElementById("desc4");
+        var ele5 = document.getElementById("desc5");
+
+        ele1.style.visibility = "hidden";
+        ele2.style.visibility = "hidden";
+        ele3.style.visibility = "hidden";
+        ele4.style.visibility = "hidden";
+        ele5.style.visibility = "hidden";
+
+        var button = event.target;
+        if (button.id == "ex1") {
+          ele1.style.visibility = "visible";
+        }
+        if (button.id == "ex2") {
+          ele2.style.visibility = "visible";
+        }
+        if (button.id == "ex3") {
+          ele3.style.visibility = "visible";
+        }
+        if (button.id == "ex4") {
+          ele4.style.visibility = "visible";
+        }
+        if (button.id == "ex5") {
+          ele5.style.visibility = "visible";
+        }
+      }
+
+      var topics = document.querySelectorAll(".topic-button");
+      for (var i = 0; i < topics.length; i++) {
+        topics[i].addEventListener("click", Changer);
+      }
+    </script>
+  </body>
+</html>
