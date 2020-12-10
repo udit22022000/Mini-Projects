@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="topic-button" id="first">CODE EXPLANATION</div>
+    </div>
+
+    <div class="container-2">
+      <div class="details">
+        <div class="steps" id="code">
+          <pre>
+              <b>CODE :</b><br>
+              var greeting = "Hello"
+              var name = "Titans"
+  
+              function sayHello(){
+              console.log(greeting + " " + name)
+              }
+  
+              sayHello();
+        </pre>
+        </div>
+
+        <div class="steps">
+          <p>
+            <b>STEP 1:</b>
+            First of all a global execution context is created. Thereafter
+            starts the most initial phase called creation phase, in this phase
+            all the variables and functions are declared in the Global Execution
+            context.
+          </p>
+          <br />
+          <img src="1.png" />
+        </div>
+        <div class="steps">
+          <p>
+            <b>STEP 2:</b>
+            Now the Execution phase starts, where all variables are assigned
+            values and lines are being executed one by one as encountered.
+          </p>
+          <br />
+          <img src="2.png" />
+        </div>
+        <div class="steps">
+          <p>
+            <b>STEP 3:</b>
+            As we can see that, in the last line of the code, a function
+            sayHello is being called. So now a brand new functional execution
+            context will be created, then there will be 2 phases of execution
+            for that partcular function. The first phase will be creation phase,
+            where all the variables inside it will be declared.
+          </p>
+          <br />
+          <img src="3.png" />
+        </div>
+        <div class="steps">
+          <p>
+            <b>STEP 4:</b>
+            Now the execution phase starts inside the functional execution
+            context of sayHello function, where all the lines inside the
+            function is executed one by one.
+          </p>
+          <br />
+          <img src="4.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
