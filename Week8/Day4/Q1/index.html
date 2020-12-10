@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="heading"><b>ES6</b></div>
+
+    <div class="container-1">
+      <div class="topic-button" id="ex1">CODE-1</div>
+      <div class="topic-button" id="ex2">CODE-2</div>
+      <div class="topic-button" id="ex3">CODE-3</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1" style="visibility: hidden">
+        <img src="1.png" />
+        <div class="explanation">
+          <b>1st for loop:</b><br />
+          Here the value of i is getting incremented by one after each
+          interation.After each interation, value of i is getting printed till
+          9.<br />After coming out of the loop the value of i gets printed once
+          i.e 10.<br />
+          <b>2nd for loop</b><br />
+          Here also same thing happens as in 1st loop, value of j gets printed
+          and gets incremented after each interation till it's value reaches 9.
+          <br />After coming out of the loop the value of j fails to get printed
+          because scope of j was till inside the for loop only.and it throws a
+          reference error.
+        </div>
+      </div>
+      <div id="desc2" style="visibility: hidden">
+        <img src="2.png" />
+        <div class="explanation">
+          Here in this case, i is pointing over each indices of names array one
+          by one and printing the value at that index at each iteration.
+        </div>
+      </div>
+      <div id="desc3" style="visibility: hidden">
+        <img src="3.png" />
+        <div class="explanation">
+          In this code, i points to the array index and after each iteration,
+          value of i gets printed and i points to the very next index within the
+          array object and so on, till the last array index.<br />
+          After each iteration , value of i is getting reassigned, so it doesn't
+          matter what are the changes we are making to the variable i at each
+          iteration.
+        </div>
+      </div>
+    </div>
+    <script>
+      function Changer(event) {
+        var ele1 = document.getElementById("desc1");
+        var ele2 = document.getElementById("desc2");
+        var ele3 = document.getElementById("desc3");
+
+        ele1.style.visibility = "hidden";
+        ele2.style.visibility = "hidden";
+        ele3.style.visibility = "hidden";
+
+        var button = event.target;
+        if (button.id == "ex1") {
+          ele1.style.visibility = "visible";
+        }
+        if (button.id == "ex2") {
+          ele2.style.visibility = "visible";
+        }
+        if (button.id == "ex3") {
+          ele3.style.visibility = "visible";
+        }
+      }
+
+      var topics = document.querySelectorAll(".topic-button");
+      for (var i = 0; i < topics.length; i++) {
+        topics[i].addEventListener("click", Changer);
+      }
+    </script>
+  </body>
+</html>
