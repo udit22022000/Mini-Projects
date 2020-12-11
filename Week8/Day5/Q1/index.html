@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poke Mania</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="post-form">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" />
+      </div>
+      <div>
+        <label for="candy">Candy</label>
+        <input id="candy" type="text" />
+      </div>
+      <div>
+        <label for="img">Image</label>
+        <input id="img" type="url" />
+      </div>
+      <div>
+        <label for="weak">Weaknesses</label>
+        <input id="weak" type="text" placeholder="A,B,C,D" />
+      </div>
+      <div>
+        <label for="evolution">Next Evolution</label>
+        <input id="evolution" type="text" placeholder="A,B,C,D" />
+      </div>
+      <button id="post_btn">POST</button>
+      <button id="get_btn">GET</button>
+    </div>
+    <div class="display-area" id="display-area"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
