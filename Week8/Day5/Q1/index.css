@@ -1,0 +1,51 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+body > div {
+  width: 100%;
+}
+.post-form {
+  height: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.post-form > div {
+  margin-left: 10px;
+}
+.post-form > button {
+  width: 60px;
+  height: 30px;
+}
+.display-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: #f3c053;
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 15px;
+  margin: 25px;
+  background: #f3c053;
+  box-shadow: 23px 23px 46px #cfa347, -23px -23px 46px #ffdd5f;
+}
+
+.card > img {
+  width: 100%;
+}
