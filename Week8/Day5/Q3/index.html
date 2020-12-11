@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERROR ERROR EVERYWHERE</title>
+    <style>
+      * {
+        margin: 0px;
+        box-sizing: border-box;
+        padding: 0px;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        width: 15%;
+        min-width: 300px;
+        border-radius: 20px;
+      }
+
+      .explanation {
+        width: 80%;
+        border: 1px solid black;
+        border-radius: 50px;
+        height: 20%;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="2.png" />
+    <div class="explanation">
+      This code will generate an error because here a function and a variable is
+      having same name i.e <b>abc</b>, javascript engine is getting confused
+      between these. At the time of returning the function abc, it is
+      considering abc as a variable and generating an error that a variable
+      can't be called. So ,to remove the error just keep the variable and
+      function name different.
+    </div>
+  </body>
+</html>
