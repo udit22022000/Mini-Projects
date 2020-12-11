@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PYRAMID OF DOOM</title>
+    <style>
+      * {
+        margin: 0px;
+        box-sizing: border-box;
+        padding: 0px;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        width: 15%;
+        min-width: 300px;
+        border-radius: 20px;
+      }
+
+      .explanation {
+        width: 80%;
+        border: 1px solid black;
+        border-radius: 50px;
+        height: auto;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="1.png" />
+    <div class="explanation">
+      First of all, when pyramidofDoom function will be called, a execution
+      context will be created for that. Thereafter, everything inside it will be
+      put into call stack one by one and will be executed.<br /><br />
+      <b>STEP 1:</b>
+      The function residing inside the setTimeOut function in line 2 inside the
+      pyramidofDoom will be shifted to web api container, from there after 2
+      seconds it will be transferred to callback queue.<br /><br />
+      <b>STEP 2:</b>
+      The 2nd function in line 11 will be shifted to web api container and from
+      there it will be shifted to CALLBACK QUEUE after 1 second.<br /><br />
+      <b>STEP 3:</b>
+      Now the function in line 11 will be pulled out from callback queue and
+      will be executed and it will <b>print 1</b>. and function in line 13 will
+      be shifted to web api container. After that function in line 2 will be
+      putlled out from callback queue and will be exceuted and it will
+      <b>print 1</b> and function in line 4 will be transfered to web api
+      container and now it will execute after 2 seconds.<br /><br />
+      <b>STEP 4:</b>
+      Function in line 13 will be pulled out from call back queue and will be
+      executed and will <b>print 2</b>. After that function in line 15 will be
+      put into web api container and from there it will be transferred to
+      callback queue and since it's time of execution is after 1 seconds, so
+      line 15 function will be transferred to callback queue before line 4
+      function and it will <b>print 3</b>.<br /><br />
+      <b>STEP 5:</b>
+      After taht line 4 function will get executed and it will <b>print 2</b>.
+      and function in line 6 will be transferred to web api container and from
+      there to callback queue, and then it will get exceuted and will
+      <b>print 3</b>.<br /><br />
+    </div>
+  </body>
+</html>
