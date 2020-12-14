@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="heading"><b>De-Structuring</b></div>
+    <div id="instruction">
+      [NOTE: Click upon the below mentioned topic names to see the explanation]
+    </div>
+    <div class="container-1">
+      <div class="topic-button" id="ex1">ARRAY DE-STRUCTURING</div>
+      <div class="topic-button" id="ex2">OBJECT DE-STRUCTURING</div>
+      <div class="topic-button" id="ex3">SPREAD OPEARTOR</div>
+      <div class="topic-button" id="ex4">REST OPERATOR</div>
+      <div class="topic-button" id="ex5">DEFAULT VALUES</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1" style="visibility: hidden">
+        <img src="1.png" />
+        <div class="explanation">
+          As we know that arrays are special types of object which stores values
+          in numerically indexed fashion. Array Destructuring comes into picture
+          when we need to define multiple variables at one go. We can define as
+          many variables we want in one line using array destructuring.<br />
+          Process goes like this, on the Left hand side write all the variable
+          names that we want, within an array and on the right hand side, put
+          all the values that we want to get assigned to those variables inside
+          an array. Values will get allocated to the variables with respect to
+          their index i.e variable at index x on L.H.S will be assigned value at
+          index x on R.H.S.
+        </div>
+      </div>
+      <div id="desc2" style="visibility: hidden">
+        <img src="2.png" />
+        <div class="explanation">
+          We can define bunch of variables at one go using object
+          destructuring.<br />
+          Process goes like this, on the left hand side write all the variables
+          names that we want, inside an object and on the right hand side define
+          an object having key names same as variable names and assign values to
+          the keys accordingly. Like this all the variables will get defined
+          with corresponding values associated with the keys.
+        </div>
+      </div>
+      <div id="desc3" style="visibility: hidden">
+        <img src="4.png" />
+        <div class="explanation">
+          Spread operator is mostly used in places where more than 1 values are
+          expected. Suppose, if we want to append all the elements of a
+          particular array to another array, we can use spread operator to
+          append all at once,spread opeartor just spreads out all the values
+          inside it.
+        </div>
+      </div>
+      <div id="desc4" style="visibility: hidden">
+        <img src="3.png" />
+        <div class="explanation">
+          It is basically the collection of all the remaining elements in the
+          form of an array.
+          <br />
+          Rest Operator is mostly used in function parameters, where we don't
+          know how many arguments will be passed by the user, in those cases all
+          the values that are passed as arguments, are stored in an array.
+        </div>
+      </div>
+      <div id="desc5" style="visibility: hidden">
+        <img src="5.png" />
+        <div class="explanation">
+          Default values are generally assigned to the varaibles, in case value
+          is not being assigned to that variable, at that time default value
+          assigned to that variable. It is generally used while variables are
+          assigned values through array or object destructing.
+        </div>
+      </div>
+    </div>
+    <script>
+      function Changer(event) {
+        var ele1 = document.getElementById("desc1");
+        var ele2 = document.getElementById("desc2");
+        var ele3 = document.getElementById("desc3");
+        var ele4 = document.getElementById("desc4");
+        var ele5 = document.getElementById("desc5");
+
+        ele1.style.visibility = "hidden";
+        ele2.style.visibility = "hidden";
+        ele3.style.visibility = "hidden";
+        ele4.style.visibility = "hidden";
+        ele5.style.visibility = "hidden";
+
+        var button = event.target;
+        if (button.id == "ex1") {
+          ele1.style.visibility = "visible";
+        }
+        if (button.id == "ex2") {
+          ele2.style.visibility = "visible";
+        }
+        if (button.id == "ex3") {
+          ele3.style.visibility = "visible";
+        }
+        if (button.id == "ex4") {
+          ele4.style.visibility = "visible";
+        }
+        if (button.id == "ex5") {
+          ele5.style.visibility = "visible";
+        }
+      }
+
+      var topics = document.querySelectorAll(".topic-button");
+      for (var i = 0; i < topics.length; i++) {
+        topics[i].addEventListener("click", Changer);
+      }
+    </script>
+  </body>
+</html>
