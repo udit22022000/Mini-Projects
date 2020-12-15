@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="heading"><b>ARROW FUNCTIONS</b></div>
+    <div id="instruction">
+      [NOTE: Click upon the below mentioned topic names to see the explanation]
+    </div>
+    <div class="container-1">
+      <div class="topic-button" id="ex1">Arrow Functions</div>
+      <div class="topic-button" id="ex2">For Each</div>
+      <div class="topic-button" id="ex3">Map</div>
+      <div class="topic-button" id="ex4">Reduce</div>
+      <div class="topic-button" id="ex5">Filter</div>
+    </div>
+
+    <div class="container-2">
+      <div id="desc1" style="visibility: hidden">
+        <img src="1.png" />
+        <div class="explanation">
+          <b>Uses :</b><br />
+          1. They have a shorter & handy syntax.<br />
+          2. They have an option to return the statements implicitly.<br />
+          3. If we use an arrow functions inside another function, the arrow
+          functions retains the scope of the method in which it was declared.
+          <br /><br />
+          <b>Limitations :</b><br />
+          1. They are not suitable for methods inside an object.<br />
+          2. They can not be used as constructor.<br />
+          3. They doesn't have any name, they are generally called anonymous
+          functions.
+        </div>
+      </div>
+      <div id="desc2" style="visibility: hidden">
+        <img src="2.png" />
+        <div class="explanation">
+          For each is a higher order function in javascript. Generally it is
+          used as an alternative in place of loops. It takes an array and a
+          function as input. After that, for each element of the array, forEach
+          executes that particular function.
+        </div>
+      </div>
+      <div id="desc3" style="visibility: hidden">
+        <img src="4.png" />
+        <div class="explanation">
+          Map is a higher order function in javascript.It is almost similar to
+          forEach. It takes an array and a function as input. After that, for
+          each element of the array, map executes that function and stores the
+          value generated each time in an array and at last returns the whole
+          array.
+        </div>
+      </div>
+      <div id="desc4" style="visibility: hidden">
+        <img src="3.png" />
+        <div class="explanation">
+          Reduce is a higher order function in javascript. It takes an array,
+          function and a comparator as input. It traverses through each element
+          of the array and uses the output generated from the previous one as a
+          input for the next element for each and every element of the array. At
+          last it returns the output generated from the final element.
+        </div>
+      </div>
+      <div id="desc5" style="visibility: hidden">
+        <img src="5.png" />
+        <div class="explanation">
+          Filter is a higher order function in javascript. It takes an array and
+          a function as input. After that, filter takes all the elements one by
+          one and executes that particular function. Filter creates a new array
+          and stores all those elements for which a function returns true and at
+          last filter returns that array as output.
+        </div>
+      </div>
+    </div>
+    <script>
+      function Changer(event) {
+        var ele1 = document.getElementById("desc1");
+        var ele2 = document.getElementById("desc2");
+        var ele3 = document.getElementById("desc3");
+        var ele4 = document.getElementById("desc4");
+        var ele5 = document.getElementById("desc5");
+
+        ele1.style.visibility = "hidden";
+        ele2.style.visibility = "hidden";
+        ele3.style.visibility = "hidden";
+        ele4.style.visibility = "hidden";
+        ele5.style.visibility = "hidden";
+
+        var button = event.target;
+        if (button.id == "ex1") {
+          ele1.style.visibility = "visible";
+        }
+        if (button.id == "ex2") {
+          ele2.style.visibility = "visible";
+        }
+        if (button.id == "ex3") {
+          ele3.style.visibility = "visible";
+        }
+        if (button.id == "ex4") {
+          ele4.style.visibility = "visible";
+        }
+        if (button.id == "ex5") {
+          ele5.style.visibility = "visible";
+        }
+      }
+
+      var topics = document.querySelectorAll(".topic-button");
+      for (var i = 0; i < topics.length; i++) {
+        topics[i].addEventListener("click", Changer);
+      }
+    </script>
+  </body>
+</html>
